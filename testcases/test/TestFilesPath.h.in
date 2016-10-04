@@ -1,0 +1,2 @@
+// definition needed for TestCases.cpp to determine where are test files.
+#cmakedefine TEST_FILES_PATH "@TEST_FILES_PATH@"

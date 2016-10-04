@@ -11,3 +11,20 @@ HunterGate(
 project(DictionaryPath VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+
+
+# Add GTest package
+# https://github.com/ruslo/hunter/wiki/pkg.gtest
+hunter_add_package(GTest)
+find_package(GTest CONFIG REQUIRED)
+
+# Add Boost package
+# https://github.com/ruslo/hunter/wiki/pkg.boost
+hunter_add_package(Boost)
+find_package(Boost CONFIG REQUIRED)
+
+### Testing ###
+enable_testing()
+
+### Subdirectories ###
+add_subdirectory(libdictionarypath)

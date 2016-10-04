@@ -28,3 +28,4 @@ enable_testing()
 
 ### Subdirectories ###
 add_subdirectory(libdictionarypath)
+add_subdirectory(sample)

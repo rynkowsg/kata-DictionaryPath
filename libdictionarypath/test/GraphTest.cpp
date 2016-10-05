@@ -4,7 +4,6 @@
 
 #include <gtest/gtest.h>
 
-#include "Graph.h"
 #include "WordsGraph.h"
 
 TEST(GraphTest, Boo) {

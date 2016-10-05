@@ -1,42 +1,40 @@
 //
-// Created by Grzegorz Rynkowski on 02/10/2016.
+// Created by Grzegorz Rynkowski on 05/10/2016.
 //
 
 #ifndef DICTIONARYPATH_WORDSGRAPH_H
 #define DICTIONARYPATH_WORDSGRAPH_H
 
-#include <ostream>                                         // std::ostream
+#include <memory>                                          // std::shared_ptr
+#include <unordered_map>                                   // std::unordered_map
+#include <unordered_set>                                   // std::unordered_set
 
 #include "DictionaryPath/Dictionary.h"                     // DictionaryPtr
-#include "Graph.h"                                         // ConnectionsPtr, ConstConnectionsPtr, ConstNodesPtr, NodesPtr, Graph
+
+
+using Node = const Word *;
+using Nodes = std::unordered_set<Node>;
+using NodesPtr = std::shared_ptr<Nodes>;
+using ConstNodesPtr = std::shared_ptr<const Nodes>;
+
+using Neighbours = Nodes;
+using Connections = std::unordered_map<Node, Neighbours>;
+using ConnectionsPtr = std::shared_ptr<Connections>;
+using ConstConnectionsPtr = std::shared_ptr<const Connections>;
 
 class WordsGraph;
 using WordsGraphPtr = std::shared_ptr<WordsGraph>;
 using ConstWordsGraphPtr = std::shared_ptr<const WordsGraph>;
 
-class WordsGraph final: public Graph
+
+struct WordsGraph
 {
-public:
-    WordsGraph();
-    ~WordsGraph() = default;
+    virtual void setData(DictionaryPtr dictionary) = 0;
 
-    void setData(DictionaryPtr dictionary) override;
+    virtual ConstNodesPtr getNodes() const = 0;
 
-    ConstNodesPtr getNodes() const override
-    { return nodes_; }
-
-    ConstConnectionsPtr getConnections() const override
-    { return connections_; }
-
-    void printConnections(std::ostream &os);
-
-private:
-    void initVariables(DictionaryPtr dictionary = std::make_shared<Dictionary>());
-    void findConnections();
-
-    DictionaryPtr dictionary_;
-    NodesPtr nodes_;
-    ConnectionsPtr connections_;
+    virtual ConstConnectionsPtr getConnections() const = 0;
 };
+
 
 #endif //DICTIONARYPATH_WORDSGRAPH_H

@@ -8,8 +8,8 @@
 #include <memory>                                          // std::shared_ptr
 #include <unordered_map>                                   // std::unordered_map
 
-#include "Graph.h"                                         // GraphPtr, Node
 #include "ShortestPathAlgorithm.h"                         // ShortestPathAlgorithm
+#include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
 class DijkstraAlgorithm : public ShortestPathAlgorithm
 {
@@ -21,7 +21,7 @@ public:
     using PreviousTablePtr = std::shared_ptr<PreviousTable>;
     using ConstPreviousTablePtr = std::shared_ptr<const PreviousTable>;
 
-    virtual void setGraph(const GraphPtr &graph) override = 0;
+    virtual void setGraph(const WordsGraphPtr &graph) override = 0;
 
     virtual ConstPathPtr getPath(Node start, Node end) override = 0;
 

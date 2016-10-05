@@ -10,15 +10,15 @@
 #include <vector>                                          // std::vector
 
 #include "DijkstraAlgorithm.h"                             // DijkstraAlgorithm
-#include "Graph.h"                                         // Node, GraphPtr
 #include "Path.h"                                          // Path
+#include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
 class DijkstraAlgorithmImpl: public DijkstraAlgorithm
 {
 public:
     DijkstraAlgorithmImpl();
 
-    void setGraph(const GraphPtr &graph) override;
+    void setGraph(const WordsGraphPtr &graph) override;
     void calculate(Node start);
 
     ConstDistanceTablePtr getDistanceTable() const override
@@ -55,7 +55,7 @@ private:
     void printDistanceTable(std::ostream &os);
     void printPreviousTable(std::ostream &os);
 
-    ConstGraphPtr graph_;
+    ConstWordsGraphPtr graph_;
 
     DistanceTablePtr distance_;
     PreviousTablePtr previous_;

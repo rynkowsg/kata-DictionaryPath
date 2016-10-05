@@ -7,8 +7,8 @@
 
 #include <memory>                                          // std::shared_ptr
 
-#include "Graph.h"                                         // GraphPtr, Node
 #include "Path.h"                                          // ConstPathPtr
+#include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
 class ShortestPathAlgorithm;
 using ShortestPathAlgorithmPtr = std::shared_ptr<ShortestPathAlgorithm>;
@@ -16,7 +16,7 @@ using ShortestPathAlgorithmPtr = std::shared_ptr<ShortestPathAlgorithm>;
 class ShortestPathAlgorithm
 {
 public:
-    virtual void setGraph(const GraphPtr &graph) = 0;
+    virtual void setGraph(const WordsGraphPtr &graph) = 0;
 
     virtual ConstPathPtr getPath(Node start, Node end) = 0;
 };

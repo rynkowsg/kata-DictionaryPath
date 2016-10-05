@@ -8,7 +8,7 @@
 #include <list>                                            // std::list
 #include <memory>                                          // std::shared_ptr
 
-#include "Graph.h"                                         // Node
+#include "WordsGraph.h"                                    // Node
 
 using Path = std::list<Node>;
 using PathPtr = std::shared_ptr<Path>;

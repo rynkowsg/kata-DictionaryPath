@@ -2,7 +2,8 @@
 // Created by Grzegorz Rynkowski on 02/10/2016.
 //
 
-#include "WordsGraph.h"
+#include "DefaultWordsGraph.h"
+
 
 namespace
 {
@@ -38,12 +39,12 @@ std::ostream &operator<<(std::ostream &os, const Neighbours &neighbours)
 }  // namespace
 
 
-WordsGraph::WordsGraph()
+DefaultWordsGraph::DefaultWordsGraph()
 {
     initVariables();
 }
 
-void WordsGraph::initVariables(DictionaryPtr dictionary)
+void DefaultWordsGraph::initVariables(DictionaryPtr dictionary)
 {
     dictionary_ = dictionary;
     nodes_ = std::make_shared<Nodes>();
@@ -55,13 +56,13 @@ void WordsGraph::initVariables(DictionaryPtr dictionary)
     }
 }
 
-void WordsGraph::setData(DictionaryPtr dictionary)
+void DefaultWordsGraph::setData(DictionaryPtr dictionary)
 {
     initVariables(dictionary);
     findConnections();
 }
 
-void WordsGraph::findConnections()
+void DefaultWordsGraph::findConnections()
 {
     for (const Word &first_word : *dictionary_) {
         for (const Word &second_word : *dictionary_) {
@@ -73,7 +74,7 @@ void WordsGraph::findConnections()
     }
 }
 
-void WordsGraph::printConnections(std::ostream &os)
+void DefaultWordsGraph::printConnections(std::ostream &os)
 {
     os << "Connections [" << connections_->size() << "]: \n";
     for (const auto &pair : *connections_) {

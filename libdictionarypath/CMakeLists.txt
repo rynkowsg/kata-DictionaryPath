@@ -1,19 +1,15 @@
 cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 
 add_library(DictionaryPath
-        include/DictionaryPath/Dictionary.h
-        src/Dictionary.cpp
-        include/DictionaryPath/DictionaryPath.h
-        src/DictionaryPath.cpp
-        src/WordsGraph.cpp
-        src/WordsGraph.h
-        src/DijkstraAlgorithmImpl.cpp
-        src/DijkstraAlgorithmImpl.h
-        src/Path.cpp
-        src/Path.h
-        src/Graph.h
-        src/ShortestPathAlgorithm.h
+        include/DictionaryPath/Dictionary.h src/Dictionary.cpp
+        include/DictionaryPath/DictionaryPath.h src/DictionaryPath.cpp
+        src/DefaultWordsGraph.h src/DefaultWordsGraph.cpp
         src/DijkstraAlgorithm.h
+        src/DijkstraAlgorithmImpl.h src/DijkstraAlgorithmImpl.cpp
+        src/Path.h src/Path.cpp
+        src/ShortestPathAlgorithm.h
+        src/WordsGraph.h
+        src/WordsGraphFactory.h src/WordsGraphFactory.cpp
         )
 
 target_include_directories(DictionaryPath PUBLIC

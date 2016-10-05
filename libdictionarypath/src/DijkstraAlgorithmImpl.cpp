@@ -19,7 +19,7 @@ DijkstraAlgorithmImpl::DijkstraAlgorithmImpl()
 {
 }
 
-void DijkstraAlgorithmImpl::setGraph(const GraphPtr &graph)
+void DijkstraAlgorithmImpl::setGraph(const WordsGraphPtr &graph)
 {
     graph_ = graph;
 }

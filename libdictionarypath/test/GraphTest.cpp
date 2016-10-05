@@ -4,9 +4,8 @@
 
 #include <gtest/gtest.h>
 
-// There is a problem with including internal headers from DictionaryPath.
-//#include "Graph.h"
-//#include "WordGraph.h"
+#include "Graph.h"
+#include "WordsGraph.h"
 
 TEST(GraphTest, Boo) {
     ASSERT_EQ(3, 3);

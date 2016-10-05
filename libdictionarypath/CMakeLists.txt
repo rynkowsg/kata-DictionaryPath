@@ -23,5 +23,6 @@ target_include_directories(DictionaryPath PUBLIC
 
 
 add_executable(GraphTest test/GraphTest.cpp)
+target_include_directories(GraphTest PRIVATE src)
 target_link_libraries(GraphTest GTest::main DictionaryPath)
 add_test(NAME GraphTest COMMAND GraphTest)

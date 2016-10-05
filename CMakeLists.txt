@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 # https://docs.hunter.sh/en/latest/quick-start.html
 include("cmake/HunterGate.cmake")
 HunterGate(
+        # https://github.com/ruslo/hunter/releases
         URL "https://github.com/ruslo/hunter/archive/v0.16.5.tar.gz"
         SHA1 "51594bfe1f58a7264c811a0d84bea79fc6758d6b"
 )

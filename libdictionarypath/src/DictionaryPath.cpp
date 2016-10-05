@@ -4,8 +4,9 @@
 
 #include "DictionaryPath/DictionaryPath.h"
 
-#include "DijkstraAlgorithmImpl.h"                         // DijkstraAlgorithmImpl
+#include "WordsGraphAlgorithmFactory.h"                    // WordsGraphAlgorithmFactory
 #include "WordsGraphFactory.h"                             // WordsGraphFactory
+
 
 unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary,
                                                  const Word *start,
@@ -14,11 +15,10 @@ unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary
     auto graph = WordsGraphFactory::CreateWordsGraph();
     graph->setData(dictionary);
 
-    auto shortest_path_algorithm = static_cast<ShortestPathAlgorithmPtr>(
-        std::make_shared<DijkstraAlgorithmImpl>());
-    shortest_path_algorithm->setGraph(graph);
+    auto shortestPathAlgorithm = WordsGraphAlgorithmFactory::CreateDijkstraAlgorithm();
+    shortestPathAlgorithm->setGraph(graph);
 
-    auto path = shortest_path_algorithm->getPath(start, end);
+    auto path = shortestPathAlgorithm->getPath(start, end);
     if (path->size() == 0) {
         return 0;
     }

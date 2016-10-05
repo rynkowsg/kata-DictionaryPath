@@ -2,10 +2,11 @@
 // Created by Grzegorz Rynkowski on 02/10/2016.
 //
 
-#include "DijkstraAlgorithmImpl.h"
+#include "DefaultDijkstraAlgorithm.h"
 
 #include <limits>                                          // std::numeric_limits
 #include <memory>                                          // std::make_shared
+
 
 namespace
 {
@@ -14,23 +15,23 @@ constexpr auto kUndefined = nullptr;
 constexpr auto kInfinity = static_cast<unsigned int>(std::numeric_limits<int>::max());
 }
 
-DijkstraAlgorithmImpl::DijkstraAlgorithmImpl()
+DefaultDijkstraAlgorithm::DefaultDijkstraAlgorithm()
     : priorityQueue_{PriorityQueue(*this)}
 {
 }
 
-void DijkstraAlgorithmImpl::setGraph(const WordsGraphPtr &graph)
+void DefaultDijkstraAlgorithm::setGraph(const WordsGraphPtr &graph)
 {
     graph_ = graph;
 }
 
-void DijkstraAlgorithmImpl::calculate(Node start)
+void DefaultDijkstraAlgorithm::calculate(Node start)
 {
     initializeAlgorithm(start);
     fillOutTables();
 }
 
-void DijkstraAlgorithmImpl::fillOutTables()
+void DefaultDijkstraAlgorithm::fillOutTables()
 {
     while (!priorityQueue_.empty()) {
         auto node = priorityQueue_.top();
@@ -46,7 +47,7 @@ void DijkstraAlgorithmImpl::fillOutTables()
     }
 }
 
-void DijkstraAlgorithmImpl::initializeAlgorithm(Node start)
+void DefaultDijkstraAlgorithm::initializeAlgorithm(Node start)
 {
     if (!distance_)
         distance_ = std::make_shared<DistanceTable>();
@@ -63,7 +64,7 @@ void DijkstraAlgorithmImpl::initializeAlgorithm(Node start)
     priorityQueue_.push(start);
 }
 
-ConstPathPtr DijkstraAlgorithmImpl::getPath(Node start, Node end)
+ConstPathPtr DefaultDijkstraAlgorithm::getPath(Node start, Node end)
 {
     if (!path_) {
         path_ = std::make_shared<Path>();
@@ -82,7 +83,7 @@ ConstPathPtr DijkstraAlgorithmImpl::getPath(Node start, Node end)
     return path_;
 }
 
-void DijkstraAlgorithmImpl::printDistanceTable(std::ostream &os)
+void DefaultDijkstraAlgorithm::printDistanceTable(std::ostream &os)
 {
     for (auto &node : *graph_->getNodes()) {
         os << "distance_->at(" << *node << "): " << distance_->at(node) << "\n";
@@ -90,7 +91,7 @@ void DijkstraAlgorithmImpl::printDistanceTable(std::ostream &os)
     os << "\n";
 }
 
-void DijkstraAlgorithmImpl::printPreviousTable(std::ostream &os)
+void DefaultDijkstraAlgorithm::printPreviousTable(std::ostream &os)
 {
     for (auto &node : *graph_->getNodes()) {
         os << "previous_->at(" << *node << "): "

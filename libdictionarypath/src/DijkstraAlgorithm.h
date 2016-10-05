@@ -11,7 +11,12 @@
 #include "ShortestPathAlgorithm.h"                         // ShortestPathAlgorithm
 #include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
-class DijkstraAlgorithm : public ShortestPathAlgorithm
+
+class DijkstraAlgorithm;
+using DijkstraAlgorithmPtr = std::shared_ptr<DijkstraAlgorithm>;
+
+
+class DijkstraAlgorithm: public ShortestPathAlgorithm
 {
 public:
     using DistanceTable = std::unordered_map<Node, unsigned>;

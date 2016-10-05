@@ -2,8 +2,8 @@
 // Created by Grzegorz Rynkowski on 02/10/2016.
 //
 
-#ifndef DICTIONARYPATH_DIJKSTRAALGORITHMIMPL_H
-#define DICTIONARYPATH_DIJKSTRAALGORITHMIMPL_H
+#ifndef DICTIONARYPATH_DEFAULTDIJKSTRAALGORITHM_H
+#define DICTIONARYPATH_DEFAULTDIJKSTRAALGORITHM_H
 
 #include <ostream>                                         // std::ostream
 #include <queue>                                           // std::priority_queue
@@ -13,10 +13,11 @@
 #include "Path.h"                                          // Path
 #include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
-class DijkstraAlgorithmImpl: public DijkstraAlgorithm
+
+class DefaultDijkstraAlgorithm: public DijkstraAlgorithm
 {
 public:
-    DijkstraAlgorithmImpl();
+    DefaultDijkstraAlgorithm();
 
     void setGraph(const WordsGraphPtr &graph) override;
     void calculate(Node start);
@@ -33,7 +34,7 @@ private:
     class PrioritizeOverDistance
     {
     public:
-        PrioritizeOverDistance(const DijkstraAlgorithmImpl &algorithm)
+        PrioritizeOverDistance(const DefaultDijkstraAlgorithm &algorithm)
             : algorithm_{algorithm}
         {
         }
@@ -45,7 +46,7 @@ private:
         }
 
     private:
-        const DijkstraAlgorithmImpl &algorithm_;
+        const DefaultDijkstraAlgorithm &algorithm_;
     };
 
     using PriorityQueue = std::priority_queue<Node, std::vector<Node>, PrioritizeOverDistance>;
@@ -63,4 +64,5 @@ private:
     PathPtr path_;
 };
 
-#endif //DICTIONARYPATH_DIJKSTRAALGORITHMIMPL_H
+
+#endif //DICTIONARYPATH_DEFAULTDIJKSTRAALGORITHM_H

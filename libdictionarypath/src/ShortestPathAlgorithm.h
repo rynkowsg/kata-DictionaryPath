@@ -10,8 +10,10 @@
 #include "Path.h"                                          // ConstPathPtr
 #include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
+
 class ShortestPathAlgorithm;
 using ShortestPathAlgorithmPtr = std::shared_ptr<ShortestPathAlgorithm>;
+
 
 class ShortestPathAlgorithm
 {

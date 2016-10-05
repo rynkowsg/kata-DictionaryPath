@@ -19,7 +19,7 @@ target_include_directories(DictionaryPath PUBLIC
         PRIVATE src)
 
 
-add_executable(GraphTest test/GraphTest.cpp)
-target_include_directories(GraphTest PRIVATE src)
-target_link_libraries(GraphTest GTest::main DictionaryPath)
-add_test(NAME GraphTest COMMAND GraphTest)
+add_executable(WordsGraphTest test/WordsGraphTest.cpp)
+target_include_directories(WordsGraphTest PRIVATE src)
+target_link_libraries(WordsGraphTest GTest::main DictionaryPath)
+add_test(NAME WordsGraphTest COMMAND WordsGraphTest)

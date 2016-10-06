@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
 include("cmake/HunterGate.cmake")
 HunterGate(
         # https://github.com/ruslo/hunter/releases
-        URL "https://github.com/ruslo/hunter/archive/v0.16.5.tar.gz"
-        SHA1 "51594bfe1f58a7264c811a0d84bea79fc6758d6b"
+        URL "https://github.com/ruslo/hunter/archive/v0.16.8.tar.gz"
+        SHA1 "3432a4ce48b1de653e15f6a21851599337b15202"
 )
 
 project(DictionaryPath VERSION 0.1 LANGUAGES CXX)

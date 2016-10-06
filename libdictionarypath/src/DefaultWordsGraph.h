@@ -8,6 +8,7 @@
 #include <ostream>                                         // std::ostream
 
 #include "DictionaryPath/Dictionary.h"                     // DictionaryPtr
+#include "DictionaryPath/DictionaryFactory.h"              // DictionaryFactory
 #include "WordsGraph.h"                                    // ConnectionsPtr, ConstConnectionsPtr, ConstNodesPtr, NodesPtr, WordsGraph
 
 
@@ -33,7 +34,7 @@ public:
     void printConnections(std::ostream &os);
 
 private:
-    void initVariables(DictionaryPtr dictionary = std::make_shared<Dictionary>());
+    void initVariables(DictionaryPtr dictionary = DictionaryFactory::CreateDictionary());
     void findConnections();
 
     DictionaryPtr dictionary_;

@@ -5,6 +5,10 @@
 #include "InputDataImpl.h"
 
 #include <fstream>                                         // std::ifstream
+#include <stdexcept>                                       // std::runtime_error
+
+#include <DictionaryPath/DictionaryFactory.h>              // DictionaryFactory
+
 
 InputDataImpl::InputDataImpl(const std::string &inputFilePath)
     : inputFilePath_{inputFilePath}
@@ -49,7 +53,7 @@ void InputDataImpl::load()
 
 void InputDataImpl::initVariables()
 {
-    dictionary_ = std::make_shared<Dictionary>();
+    dictionary_ = DictionaryFactory::CreateDictionary();
 }
 
 void InputDataImpl::readData(std::istream &is)

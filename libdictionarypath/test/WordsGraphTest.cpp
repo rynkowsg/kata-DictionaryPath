@@ -7,12 +7,13 @@
 #include <gtest/gtest.h>
 
 #include "DictionaryPath/Dictionary.h"                     // DictionaryPtr
+#include "DictionaryPath/DictionaryFactory.h"              // DictionaryFactory
 #include "WordsGraphFactory.h"                             // WordsGraphFactory
 
 
 TEST(AmountOfWords, NoWords)
 {
-    auto dict = DictionaryPtr(new Dictionary{});
+    auto dict = DictionaryFactory::CreateDictionary();
 
     auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
     wordsGraph->setData(dict);
@@ -23,7 +24,7 @@ TEST(AmountOfWords, NoWords)
 
 TEST(AmountOfWords, DifferentWords2)
 {
-    auto dict = DictionaryPtr(new Dictionary{"cad", "cat"});
+    auto dict = DictionaryFactory::CreateDictionary("cad", "cat");
 
     auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
     wordsGraph->setData(dict);
@@ -34,7 +35,7 @@ TEST(AmountOfWords, DifferentWords2)
 
 TEST(AmountOfWords, SameWords2)
 {
-    auto dict = DictionaryPtr(new Dictionary{"cat", "cat"});
+    auto dict = DictionaryFactory::CreateDictionary("cat", "cat");
 
     auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
     wordsGraph->setData(dict);
@@ -45,7 +46,7 @@ TEST(AmountOfWords, SameWords2)
 
 TEST(AmountOfWords, DifferentWords676)
 {
-    auto dict = DictionaryPtr(new Dictionary{});
+    auto dict = DictionaryFactory::CreateDictionary();
     for (char a = 'a'; a <= 'z'; ++a) {
         for (char b = 'a'; b <= 'z'; ++b) {
             dict->insert(std::string{a} + b);
@@ -65,7 +66,7 @@ TEST(AmountOfWords, DifferentWords676)
 // With current algorithm of build graph, I decided to skip it.
 //TEST(AmountOfWords, DifferentWords17576)
 //{
-//    auto dict = DictionaryPtr(new Dictionary{});
+//    auto dict = DictionaryFactory::CreateDictionary();
 //    for (char a = 'a'; a <= 'z'; ++a) {
 //        for (char b = 'a'; b <= 'z'; ++b) {
 //            for (char c = 'a'; c <= 'z'; ++c) {

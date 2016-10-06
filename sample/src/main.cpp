@@ -6,11 +6,11 @@
 
 #include <DictionaryPath/Dictionary.h>                     // Dictionary, DictionaryPtr
 #include <DictionaryPath/DictionaryPath.h>                 // DictionaryPath
+#include <DictionaryPath/DictionaryFactory.h>              // DictionaryFactory
 
 int main()
 {
-    auto dictionary = static_cast<DictionaryPtr>(
-        new Dictionary{"hit","dot","dog","cog","hot","log"});
+    auto dictionary = DictionaryFactory::CreateDictionary("hit", "dot", "dog", "cog", "hot", "log");
     auto start = &*(dictionary->find("hit"));
     auto end = &*(dictionary->find("cog"));
 

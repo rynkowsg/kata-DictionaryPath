@@ -18,6 +18,10 @@ unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary
         return 0;
     }
 
+    if (start == end) {
+        return 0;
+    }
+
     auto graph = WordsGraphFactory::CreateWordsGraph();
     graph->setData(dictionary);
 

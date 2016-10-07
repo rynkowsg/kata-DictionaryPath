@@ -63,23 +63,23 @@ TEST(AmountOfWords, DifferentWords676)
 }
 
 // AmountOfWords.DifferentWords17576 takes around 30-50 seconds.
-// With current algorithm of build graph, I decided to skip it.
-//TEST(AmountOfWords, DifferentWords17576)
-//{
-//    auto dict = DictionaryFactory::CreateDictionary();
-//    for (char a = 'a'; a <= 'z'; ++a) {
-//        for (char b = 'a'; b <= 'z'; ++b) {
-//            for (char c = 'a'; c <= 'z'; ++c) {
-//                dict->insert(std::string{a} + b + c);
-//            }
-//        }
-//    }
-//    auto amountOfAddedWords = std::pow('z' - 'a' + 1, 3);
-//
-//    auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
-//    wordsGraph->setData(dict);
-//
-//    auto nodes = wordsGraph->getNodes();
-//    EXPECT_EQ(amountOfAddedWords, nodes->size());
-//    EXPECT_EQ(dict->size(), nodes->size());
-//}
+// With current algorithm of build graph, I decided to disable it.
+TEST(AmountOfWords, DISABLED_DifferentWords17576)
+{
+    auto dict = DictionaryFactory::CreateDictionary();
+    for (char a = 'a'; a <= 'z'; ++a) {
+        for (char b = 'a'; b <= 'z'; ++b) {
+            for (char c = 'a'; c <= 'z'; ++c) {
+                dict->insert(std::string{a} + b + c);
+            }
+        }
+    }
+    auto amountOfAddedWords = std::pow('z' - 'a' + 1, 3);
+
+    auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
+    wordsGraph->setData(dict);
+
+    auto nodes = wordsGraph->getNodes();
+    EXPECT_EQ(amountOfAddedWords, nodes->size());
+    EXPECT_EQ(dict->size(), nodes->size());
+}

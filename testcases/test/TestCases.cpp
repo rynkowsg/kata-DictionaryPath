@@ -31,3 +31,8 @@ TEST_FROM_FILE(1_simple_test);
 TEST_FROM_FILE(2_simple_test);
 TEST_FROM_FILE(3_no_path);
 TEST_FROM_FILE(4_5000_random_3chars);
+TEST_FROM_FILE(5_start_word_missing_in_dict);
+TEST_FROM_FILE(6_end_word_missing_in_dict);
+TEST_FROM_FILE(7_duplicated_words);
+TEST_FROM_FILE(8_same_start_and_end);
+TEST_FROM_FILE(9_empty_dictionary);

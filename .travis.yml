@@ -1,0 +1,25 @@
+language: cpp
+
+compiler:
+  - clang
+
+os:
+  - osx
+
+osx_image: xcode8
+
+
+before_install:
+  # environment info
+  - echo "TRAVIS_OS_NAME= $TRAVIS_OS_NAME"
+  - echo "CXX= $CXX"
+  - uname -a
+  - cmake --version
+  - brew update
+  - brew outdated cmake || brew upgrade cmake
+  - cmake --version
+
+script:
+  - cmake -H. -Bbuild
+  - cmake --build build
+  - cmake --build build --target test

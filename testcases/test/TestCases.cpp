@@ -26,8 +26,8 @@ TEST(TestCaseFromFile, TEST_NAME) {                                             
 }
 
 // Below list of test cases refers to the list of *.in/*.out files at test_files/ dir.
-TEST_FROM_FILE(test0);
-TEST_FROM_FILE(test1);
-TEST_FROM_FILE(test2_no_path);
-TEST_FROM_FILE(test3);
-TEST_FROM_FILE(test4_5000_random_3chars);
+TEST_FROM_FILE(0_task_sample);
+TEST_FROM_FILE(1_simple_test);
+TEST_FROM_FILE(2_simple_test);
+TEST_FROM_FILE(3_no_path);
+TEST_FROM_FILE(4_5000_random_3chars);

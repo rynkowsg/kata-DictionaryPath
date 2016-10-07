@@ -48,7 +48,8 @@ void InputDataImpl::load()
         throw std::runtime_error("There is a problem with opening input file: " + inputFilePath_);
     }
 
-    readData(inputStream);
+    readTargetWords(inputStream);
+    readDictionary(inputStream);
 }
 
 void InputDataImpl::initVariables()
@@ -56,13 +57,18 @@ void InputDataImpl::initVariables()
     dictionary_ = DictionaryFactory::CreateDictionary();
 }
 
-void InputDataImpl::readData(std::istream &is)
+void InputDataImpl::readTargetWords(std::istream &is)
 {
     // read starting and ending points
     auto start = Word{};
     auto end = Word{};
     is >> start >> end;
+    start_ = start;
+    end_ = end;
+}
 
+void InputDataImpl::readDictionary(std::istream &is)
+{
     // reading dictionary size
     auto dictionarySize = 0;
     is >> dictionarySize;
@@ -75,28 +81,10 @@ void InputDataImpl::readData(std::istream &is)
         auto word = Word{};
         is >> word;
         // insert word into dictionary
-        auto is_successfully_inserted = dictionary_.get()->insert(word).second;
-
-        /// The description doesn't mention that words can't repeat.
-        /// For now I'm going to ignore that.
-//        if (!is_successfully_inserted)
-//            throw std::runtime_error("Repetition of words in the dictionary.");
+        dictionary_.get()->insert(word);
     }
 
-    setTwoIndicatedWords(start, end);
     verifyWordsLength();
-}
-
-void InputDataImpl::setTwoIndicatedWords(const Word &start, const Word &end)
-{
-    const auto iteratorOfStartingWord = dictionary_.get()->find(start);
-    const auto iteratorOfEndingWord = dictionary_.get()->find(end);
-    if (iteratorOfStartingWord == dictionary_.get()->end() ||
-        iteratorOfEndingWord == dictionary_.get()->end()) {
-        throw std::runtime_error("Starting and ending word needs to be also in the dictionary.");
-    }
-    start_ = *iteratorOfStartingWord;
-    end_ = *iteratorOfEndingWord;
 }
 
 void InputDataImpl::verifyWordsLength()
@@ -106,4 +94,3 @@ void InputDataImpl::verifyWordsLength()
         if (word.length() != length)
             throw std::runtime_error("All words should have the same length.");
 }
-

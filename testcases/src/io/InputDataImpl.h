@@ -26,8 +26,8 @@ public:
 private:
     void load();
     void initVariables();
-    void readData(std::istream &is);
-    void setTwoIndicatedWords(const Word &start, const Word &end);
+    void readTargetWords(std::istream &is);
+    void readDictionary(std::istream &is);
     void verifyWordsLength();
 
     std::string inputFilePath_;

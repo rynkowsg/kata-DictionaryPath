@@ -1,4 +1,8 @@
-##### Requirements:
+kata-DictionaryPath [![Build Status](https://travis-ci.org/rynkowsg/kata-DictionaryPath.svg)](https://travis-ci.org/rynkowsg/kata-DictionaryPath)
+===================
+
+
+#### Requirements:
 
 - CMake 3.6 or above
 - compiler
@@ -6,15 +10,15 @@
   - on Windows: Visual Studio
   - on Linux: gcc or clang
 
-##### To compile:
+#### To compile:
 
     cmake -H. -Bbuild
     cmake --build build
 
-##### To run a sample:
+#### To run a sample:
 
     ./build/sample/SampleApp
 
-##### To run tests:
+#### To run tests:
 
     cmake --build build --target test

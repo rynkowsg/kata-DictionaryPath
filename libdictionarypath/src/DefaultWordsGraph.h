@@ -21,7 +21,6 @@ class DefaultWordsGraph final: public WordsGraph
 {
 public:
     DefaultWordsGraph();
-    ~DefaultWordsGraph() = default;
 
     void setData(DictionaryPtr dictionary) override;
 

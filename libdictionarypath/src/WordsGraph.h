@@ -29,6 +29,8 @@ using ConstWordsGraphPtr = std::shared_ptr<const WordsGraph>;
 
 struct WordsGraph
 {
+    virtual ~WordsGraph() = default;
+
     virtual void setData(DictionaryPtr dictionary) = 0;
 
     virtual ConstNodesPtr getNodes() const = 0;

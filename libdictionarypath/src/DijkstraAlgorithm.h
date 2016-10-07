@@ -26,6 +26,8 @@ public:
     using PreviousTablePtr = std::shared_ptr<PreviousTable>;
     using ConstPreviousTablePtr = std::shared_ptr<const PreviousTable>;
 
+    virtual ~DijkstraAlgorithm() override = default;
+
     virtual void setGraph(const WordsGraphPtr &graph) override = 0;
 
     virtual ConstPathPtr getPath(Node start, Node end) override = 0;

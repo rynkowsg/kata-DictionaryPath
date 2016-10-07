@@ -15,7 +15,7 @@
 #include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
 
-class DefaultDijkstraAlgorithm: public DijkstraAlgorithm
+class DefaultDijkstraAlgorithm final: public DijkstraAlgorithm
 {
 public:
     DefaultDijkstraAlgorithm();

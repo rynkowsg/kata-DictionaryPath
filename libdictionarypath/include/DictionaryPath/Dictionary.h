@@ -22,6 +22,8 @@ struct Dictionary
     using InsertingResult = std::pair<WordsSet::iterator, bool>;
     using Iterator = WordsSet::iterator;
 
+    virtual ~Dictionary() = default;
+
     virtual Iterator find(const Word &word) const = 0;
     virtual Iterator begin() const = 0;
     virtual Iterator end() const = 0;

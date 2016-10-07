@@ -18,6 +18,8 @@ using ShortestPathAlgorithmPtr = std::shared_ptr<ShortestPathAlgorithm>;
 class ShortestPathAlgorithm
 {
 public:
+    virtual ~ShortestPathAlgorithm() = default;
+
     virtual void setGraph(const WordsGraphPtr &graph) = 0;
 
     virtual ConstPathPtr getPath(Node start, Node end) = 0;

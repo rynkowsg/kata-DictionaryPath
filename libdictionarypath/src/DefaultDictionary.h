@@ -11,7 +11,7 @@
 #include <DictionaryPath/Dictionary.h>                     // Dictionary, Word
 
 
-class DefaultDictionary: public Dictionary
+class DefaultDictionary final: public Dictionary
 {
 public:
     template<typename... Args>

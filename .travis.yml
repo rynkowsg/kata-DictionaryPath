@@ -1,4 +1,13 @@
-language: cpp
+# OSX/Linux (https://github.com/travis-ci-tester/toolchain-table)
+
+# https://docs.travis-ci.com/user/languages/cpp/
+language:
+  - cpp
+
+# Container-based infrastructure (Linux)
+# * https://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F
+sudo:
+  - false
 
 compiler:
   - clang
@@ -11,13 +20,18 @@ osx_image: xcode8
 
 before_install:
   # environment info
-  - echo "TRAVIS_OS_NAME= $TRAVIS_OS_NAME"
-  - echo "CXX= $CXX"
+  - env
   - uname -a
-  - cmake --version
   - brew update
+
+install:
   - brew outdated cmake || brew upgrade cmake
   - cmake --version
+
+# https://docs.travis-ci.com/user/caching/#Arbitrary-directories
+cache:
+  directories:
+    - $HOME/.hunter
 
 script:
   - cmake -H. -Bbuild

@@ -11,8 +11,8 @@ class DictionaryPath
 {
 public:
     unsigned int calculatePathLength(const DictionaryPtr &dictionary_,
-                                     const Word *start,
-                                     const Word *end);
+                                     const Word &start,
+                                     const Word &end);
 };
 
 #endif //DICTIONARYPATH_DICTIONARYPATH_H

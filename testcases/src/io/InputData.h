@@ -17,9 +17,9 @@ class InputData
 public:
     virtual DictionaryPtr getDictonary() = 0;
 
-    virtual const Word *getStartingWord() = 0;
+    virtual Word getStartingWord() = 0;
 
-    virtual const Word *getEndingWord() = 0;
+    virtual Word getEndingWord() = 0;
 };
 
 

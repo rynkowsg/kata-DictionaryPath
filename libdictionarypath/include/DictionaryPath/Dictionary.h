@@ -22,17 +22,14 @@ struct Dictionary
     using InsertingResult = std::pair<WordsSet::iterator, bool>;
     using Iterator = WordsSet::iterator;
 
-    virtual InsertingResult insert(const Word& word) = 0;
-
-    virtual Iterator find(const Word& word) const = 0;
-
+    virtual Iterator find(const Word &word) const = 0;
     virtual Iterator begin() const = 0;
-
     virtual Iterator end() const = 0;
-
     virtual bool empty() const = 0;
-
     virtual std::size_t size() const = 0;
+
+    virtual InsertingResult insert(const Word &word) = 0;
+    virtual const Word *findPointer(const Word &word) const = 0;
 };
 
 void PrintDictionary(std::ostream &os, const Dictionary &dictionary);

@@ -10,15 +10,16 @@
 
 int main()
 {
-    auto dictionary = DictionaryFactory::CreateDictionary("hit", "dot", "dog", "cog", "hot", "log");
-    auto start = &*(dictionary->find("hit"));
-    auto end = &*(dictionary->find("cog"));
+    const auto &dictionary =
+        DictionaryFactory::CreateDictionary("hit", "dot", "dog", "cog", "hot", "log");
+    const auto &start = *(dictionary->find("hit"));
+    const auto &end = *(dictionary->find("cog"));
 
     auto pathLenth = DictionaryPath{}.calculatePathLength(dictionary, start, end);
 
     std::cout << "dictionary: " << *dictionary << std::endl;
-    std::cout << "start: " << *start << std::endl;
-    std::cout << "end:   " << *end << std::endl;
+    std::cout << "start: " << start << std::endl;
+    std::cout << "end:   " << end << std::endl;
     std::cout << std::endl;
     std::cout << "length: " << pathLenth << std::endl;
 

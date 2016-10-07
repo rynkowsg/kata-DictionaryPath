@@ -19,9 +19,9 @@ public:
 
     DictionaryPtr getDictonary() override;
 
-    const Word *getStartingWord() override;
+    Word getStartingWord() override;
 
-    const Word *getEndingWord() override;
+    Word getEndingWord() override;
 
 private:
     void load();
@@ -33,8 +33,8 @@ private:
     std::string inputFilePath_;
 
     boost::optional<DictionaryPtr> dictionary_;
-    boost::optional<const Word *> start_;
-    boost::optional<const Word *> end_;
+    boost::optional<Word> start_;
+    boost::optional<Word> end_;
 };
 
 

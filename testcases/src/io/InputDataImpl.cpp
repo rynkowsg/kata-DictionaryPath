@@ -23,7 +23,7 @@ DictionaryPtr InputDataImpl::getDictonary()
     return dictionary_.get();
 }
 
-const Word *InputDataImpl::getStartingWord()
+Word InputDataImpl::getStartingWord()
 {
     if (!start_.is_initialized()) {
         load();
@@ -31,7 +31,7 @@ const Word *InputDataImpl::getStartingWord()
     return start_.get();
 }
 
-const Word *InputDataImpl::getEndingWord()
+Word InputDataImpl::getEndingWord()
 {
     if (!start_.is_initialized()) {
         load();
@@ -95,13 +95,13 @@ void InputDataImpl::setTwoIndicatedWords(const Word &start, const Word &end)
         iteratorOfEndingWord == dictionary_.get()->end()) {
         throw std::runtime_error("Starting and ending word needs to be also in the dictionary.");
     }
-    start_ = &*iteratorOfStartingWord;
-    end_ = &*iteratorOfEndingWord;
+    start_ = *iteratorOfStartingWord;
+    end_ = *iteratorOfEndingWord;
 }
 
 void InputDataImpl::verifyWordsLength()
 {
-    auto length = start_.get()->length();
+    auto length = start_.get().length();
     for (const auto &word : *(dictionary_.get()))
         if (word.length() != length)
             throw std::runtime_error("All words should have the same length.");

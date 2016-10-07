@@ -8,7 +8,7 @@
 #include <set>                                             // std::set
 #include <utility>                                         // std::forward
 
-#include <DictionaryPath/Dictionary.h>                     // Dictionary
+#include <DictionaryPath/Dictionary.h>                     // Dictionary, Word
 
 
 class DefaultDictionary: public Dictionary
@@ -19,8 +19,6 @@ public:
         : set_{std::forward<Args>(args)...}
     {
     }
-
-    InsertingResult insert(const Word &word) override;
 
     inline Iterator find(const Word &word) const override final
     { return set_.find(word); }
@@ -36,6 +34,10 @@ public:
 
     inline std::size_t size() const override final
     { return set_.size(); }
+
+    InsertingResult insert(const Word &word) override;
+
+    const Word *findPointer(const Word &word) const override;
 
 private:
     std::set<Word> set_;

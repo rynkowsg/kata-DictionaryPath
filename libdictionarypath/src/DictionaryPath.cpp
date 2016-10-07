@@ -9,16 +9,22 @@
 
 
 unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary,
-                                                 const Word *start,
-                                                 const Word *end)
+                                                 const Word &start,
+                                                 const Word &end)
 {
+    auto startPtr = dictionary->findPointer(start);
+    auto endPtr = dictionary->findPointer(end);
+    if (!startPtr || !endPtr) {
+        return 0;
+    }
+
     auto graph = WordsGraphFactory::CreateWordsGraph();
     graph->setData(dictionary);
 
     auto shortestPathAlgorithm = WordsGraphAlgorithmFactory::CreateDijkstraAlgorithm();
     shortestPathAlgorithm->setGraph(graph);
 
-    auto path = shortestPathAlgorithm->getPath(start, end);
+    auto path = shortestPathAlgorithm->getPath(startPtr, endPtr);
     if (path->size() == 0) {
         return 0;
     }

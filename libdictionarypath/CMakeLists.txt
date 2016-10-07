@@ -9,6 +9,7 @@ add_library(DictionaryPath
         src/DefaultWordsGraph.h src/DefaultWordsGraph.cpp
         src/DijkstraAlgorithm.h
         src/Path.h src/Path.cpp
+        src/PrioritizeOverDistance.h src/PrioritizeOverDistance.cpp
         src/ShortestPathAlgorithm.h
         src/WordsGraph.h
         src/WordsGraphAlgorithmFactory.h src/WordsGraphAlgorithmFactory.cpp

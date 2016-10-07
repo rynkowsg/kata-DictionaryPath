@@ -11,6 +11,7 @@
 
 #include "DijkstraAlgorithm.h"                             // DijkstraAlgorithm
 #include "Path.h"                                          // Path
+#include "PrioritizeOverDistance.h"                        // PrioritizeOverDistance
 #include "WordsGraph.h"                                    // Node, WordsGraphPtr
 
 
@@ -31,24 +32,6 @@ public:
     ConstPathPtr getPath(Node start, Node end) override;
 
 private:
-    class PrioritizeOverDistance
-    {
-    public:
-        PrioritizeOverDistance(const DefaultDijkstraAlgorithm &algorithm)
-            : algorithm_{algorithm}
-        {
-        }
-
-        bool operator()(const Node &node1, const Node &node2)
-        {
-            const auto &distance = algorithm_.getDistanceTable();
-            return distance->at(node1) > distance->at(node2);
-        }
-
-    private:
-        const DefaultDijkstraAlgorithm &algorithm_;
-    };
-
     using PriorityQueue = std::priority_queue<Node, std::vector<Node>, PrioritizeOverDistance>;
 
     void initializeAlgorithm(Node start);

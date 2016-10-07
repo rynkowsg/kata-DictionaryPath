@@ -26,3 +26,8 @@ add_executable(WordsGraphTest test/WordsGraphTest.cpp)
 target_include_directories(WordsGraphTest PRIVATE src)
 target_link_libraries(WordsGraphTest GTest::main DictionaryPath)
 add_test(NAME WordsGraphTest COMMAND WordsGraphTest)
+
+add_executable(DictionaryTest test/DictionaryTest.cpp)
+target_include_directories(DictionaryTest PRIVATE src)
+target_link_libraries(DictionaryTest GTest::main DictionaryPath)
+add_test(NAME DictionaryTest COMMAND DictionaryTest)

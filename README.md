@@ -22,3 +22,7 @@ kata-DictionaryPath [![Build Status](https://travis-ci.org/rynkowsg/kata-Diction
 #### To run tests:
 
     cmake --build build --target test
+
+#### To run tests in verbose mode:
+
+    cmake -E chdir build cmake -E time ctest -V

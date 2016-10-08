@@ -35,5 +35,5 @@ cache:
 
 script:
   - cmake -H. -Bbuild
-  - cmake --build build
-  - cmake --build build --target test
+  - cmake --build build -- -j4
+  - cmake -E chdir build cmake -E time ctest -V

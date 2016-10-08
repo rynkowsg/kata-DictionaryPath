@@ -56,3 +56,8 @@ TEST(FindingWordsInDictionary, InTwoElementsDictionary)
     ASSERT_EQ(dict->end(), dict->find("ccc"));
     ASSERT_EQ(nullptr, dict->findPointer("ccc"));
 }
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

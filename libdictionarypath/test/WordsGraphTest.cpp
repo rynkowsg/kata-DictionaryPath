@@ -83,3 +83,8 @@ TEST(AmountOfWords, DISABLED_DifferentWords17576)
     EXPECT_EQ(amountOfAddedWords, nodes->size());
     EXPECT_EQ(dict->size(), nodes->size());
 }
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

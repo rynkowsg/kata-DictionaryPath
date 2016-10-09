@@ -12,13 +12,11 @@ unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary
                                                  const Word &start,
                                                  const Word &end)
 {
-    auto startPtr = dictionary->findPointer(start);
-    auto endPtr = dictionary->findPointer(end);
-    if (!startPtr || !endPtr) {
+    if (start == end) {
         return 0;
     }
 
-    if (start == end) {
+    if (!dictionary->contains(start) || !dictionary->contains(end)) {
         return 0;
     }
 
@@ -28,7 +26,7 @@ unsigned int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary
     auto shortestPathAlgorithm = WordsGraphAlgorithmFactory::CreateDijkstraAlgorithm();
     shortestPathAlgorithm->setGraph(graph);
 
-    auto path = shortestPathAlgorithm->getPath(startPtr, endPtr);
+    auto path = shortestPathAlgorithm->getPath(start, end);
     if (path->size() == 0) {
         return 0;
     }

@@ -47,7 +47,8 @@ public:
     inline InsertingResult insert(const Word &word) override final
     { return WordsSet::insert(word); }
 
-    MOCK_CONST_METHOD1(findPointer, const Word*(const Word &word));
+    inline bool contains(const Word &word) override final
+    { return WordsSet::find(word) != WordsSet::end(); }
 };
 
 

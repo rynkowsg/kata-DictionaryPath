@@ -30,8 +30,8 @@ std::ostream &operator<<(std::ostream &os, const Neighbours &neighbours)
         return os;
     }
     auto it = neighbours.begin();
-    os << "[" << **it;
-    for (++it; it != neighbours.end(); ++it) os << ", " << **it;
+    os << "[" << *it;
+    for (++it; it != neighbours.end(); ++it) os << ", " << *it;
     os << "]";
     return os;
 }
@@ -51,8 +51,8 @@ void DefaultWordsGraph::initVariables(DictionaryPtr dictionary)
     connections_ = std::make_shared<Connections>();
 
     for (const auto &word : *dictionary) {
-        nodes_->insert(&word);
-        (*connections_)[&word] = Nodes();
+        nodes_->insert(word);
+        (*connections_)[word] = Nodes();
     }
 }
 
@@ -68,7 +68,7 @@ void DefaultWordsGraph::findConnections()
         for (const Word &second_word : *dictionary_) {
             if (AreDifferent(first_word, second_word)
                 && IsOneCharacterDifference(first_word, second_word)) {
-                (*connections_)[&first_word].insert(&second_word);
+                (*connections_)[first_word].insert(second_word);
             }
         }
     }
@@ -78,7 +78,7 @@ void DefaultWordsGraph::printConnections(std::ostream &os)
 {
     os << "Connections [" << connections_->size() << "]: \n";
     for (const auto &pair : *connections_) {
-        const auto &node = *pair.first;
+        const auto &node = pair.first;
         const auto &neighbours = pair.second;
         os << node << " [" << neighbours.size() << "]: " << neighbours << "\n";
     }

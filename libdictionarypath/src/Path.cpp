@@ -11,7 +11,7 @@ std::ostream &operator<<(std::ostream &os, const Path &path)
     }
     else {
         for (const auto &elem : path)
-            os << *elem << " ";
+            os << elem << " ";
         os << "\n";
     }
     return os;

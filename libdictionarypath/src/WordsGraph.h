@@ -12,7 +12,7 @@
 #include "DictionaryPath/Dictionary.h"                     // DictionaryPtr
 
 
-using Node = const Word *;
+using Node = Word;
 using Nodes = std::unordered_set<Node>;
 using NodesPtr = std::shared_ptr<Nodes>;
 using ConstNodesPtr = std::shared_ptr<const Nodes>;

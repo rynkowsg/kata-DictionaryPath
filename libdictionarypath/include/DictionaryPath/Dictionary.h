@@ -31,7 +31,8 @@ struct Dictionary
     virtual std::size_t size() const = 0;
 
     virtual InsertingResult insert(const Word &word) = 0;
-    virtual const Word *findPointer(const Word &word) const = 0;
+
+    virtual bool contains(const Word &word) = 0;
 };
 
 void PrintDictionary(std::ostream &os, const Dictionary &dictionary);

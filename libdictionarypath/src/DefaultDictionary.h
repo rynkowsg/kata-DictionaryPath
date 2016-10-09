@@ -34,9 +34,11 @@ public:
     inline std::size_t size() const override final
     { return set_.size(); }
 
-    InsertingResult insert(const Word &word) override;
+    inline InsertingResult insert(const Word &word) override final
+    { return set_.insert(word); }
 
-    const Word *findPointer(const Word &word) const override;
+    inline bool contains(const Word &word) override final
+    { return set_.find(word) != set_.end(); }
 
 private:
     WordsSet set_;

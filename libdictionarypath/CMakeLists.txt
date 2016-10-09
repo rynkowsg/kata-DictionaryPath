@@ -4,7 +4,7 @@ add_library(DictionaryPath
         include/DictionaryPath/Dictionary.h src/Dictionary.cpp
         include/DictionaryPath/DictionaryFactory.h src/DictionaryFactory.cpp
         include/DictionaryPath/DictionaryPath.h src/DictionaryPath.cpp
-        src/DefaultDictionary.h src/DefaultDictionary.cpp
+        src/DefaultDictionary.h
         src/DefaultDijkstraAlgorithm.h src/DefaultDijkstraAlgorithm.cpp
         src/DefaultWordsGraph.h src/DefaultWordsGraph.cpp
         src/DijkstraAlgorithm.h

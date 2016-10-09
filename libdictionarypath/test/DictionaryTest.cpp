@@ -65,29 +65,22 @@ TEST(FindingWordsInDictionary, InEmptyDictionary)
 {
     auto dict = DictionaryFactory::CreateDictionary();
     EXPECT_TRUE(dict->empty());
-
-    EXPECT_EQ(dict->end(), dict->find("aaa"));
-    EXPECT_EQ(nullptr, dict->findPointer("aaa"));
+    EXPECT_FALSE(dict->contains("aaa"));
 }
 
 TEST(FindingWordsInDictionary, InOneElementDictionary)
 {
     auto dict = DictionaryFactory::CreateDictionary("aaa");
-    EXPECT_NE(dict->end(), dict->find("aaa"));
-    EXPECT_NE(nullptr, dict->findPointer("aaa"));
-    EXPECT_EQ(dict->end(), dict->find("bbb"));
-    EXPECT_EQ(nullptr, dict->findPointer("bbb"));
+    EXPECT_TRUE(dict->contains("aaa"));
+    EXPECT_FALSE(dict->contains("bbb"));
 }
 
 TEST(FindingWordsInDictionary, InTwoElementsDictionary)
 {
     auto dict = DictionaryFactory::CreateDictionary("aaa", "bbb");
-    EXPECT_NE(dict->end(), dict->find("aaa"));
-    EXPECT_NE(nullptr, dict->findPointer("aaa"));
-    EXPECT_NE(dict->end(), dict->find("bbb"));
-    EXPECT_NE(nullptr, dict->findPointer("bbb"));
-    EXPECT_EQ(dict->end(), dict->find("ccc"));
-    EXPECT_EQ(nullptr, dict->findPointer("ccc"));
+    EXPECT_TRUE(dict->contains("aaa"));
+    EXPECT_TRUE(dict->contains("bbb"));
+    EXPECT_FALSE(dict->contains("ccc"));
 }
 
 namespace

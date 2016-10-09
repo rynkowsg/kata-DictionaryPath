@@ -10,7 +10,7 @@
 
 namespace
 {
-constexpr auto kUndefined = nullptr;
+const auto kUndefined = std::string{""};
 
 constexpr auto kInfinity = static_cast<unsigned int>(std::numeric_limits<int>::max());
 }
@@ -86,7 +86,7 @@ ConstPathPtr DefaultDijkstraAlgorithm::getPath(Node start, Node end)
 void DefaultDijkstraAlgorithm::printDistanceTable(std::ostream &os)
 {
     for (auto &node : *graph_->getNodes()) {
-        os << "distance_->at(" << *node << "): " << distance_->at(node) << "\n";
+        os << "distance_->at(" << node << "): " << distance_->at(node) << "\n";
     }
     os << "\n";
 }
@@ -94,7 +94,7 @@ void DefaultDijkstraAlgorithm::printDistanceTable(std::ostream &os)
 void DefaultDijkstraAlgorithm::printPreviousTable(std::ostream &os)
 {
     for (auto &node : *graph_->getNodes()) {
-        os << "previous_->at(" << *node << "): "
-           << (previous_->at(node) ? *previous_->at(node) : "X") << "\n";
+        os << "previous_->at(" << node << "): "
+           << (previous_->at(node) != kUndefined ? previous_->at(node) : "X") << "\n";
     }
 }

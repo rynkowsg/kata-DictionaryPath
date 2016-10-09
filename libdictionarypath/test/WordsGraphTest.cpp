@@ -66,7 +66,7 @@ TEST(AmountOfWords, DifferentWords676)
 
 // AmountOfWords.DifferentWords17576 takes around 30-50 seconds.
 // With current algorithm of build graph, I decided to disable it.
-TEST(AmountOfWords, DISABLED_DifferentWords17576)
+TEST(AmountOfWords, DifferentWords17576)
 {
     auto dict = MockDictionary::Create();
     for (char a = 'a'; a <= 'z'; ++a) {

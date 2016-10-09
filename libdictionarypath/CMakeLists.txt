@@ -15,16 +15,20 @@ add_library(DictionaryPath
         src/WordsGraphAlgorithmFactory.h src/WordsGraphAlgorithmFactory.cpp
         src/WordsGraphFactory.h src/WordsGraphFactory.cpp
         )
-
 target_include_directories(DictionaryPath PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         PRIVATE src)
 
 
-add_executable(WordsGraphTest test/WordsGraphTest.cpp)
+add_executable(WordsGraphTest
+        test/WordsGraphTest.cpp
+        test/MockDictionary.cpp
+        test/MockDictionary.h
+        test/FactoryMathod.h
+        )
 target_include_directories(WordsGraphTest PRIVATE src)
-target_link_libraries(WordsGraphTest GTest::main DictionaryPath)
+target_link_libraries(WordsGraphTest GTest::main GMock::main DictionaryPath)
 add_test(NAME WordsGraphTest COMMAND WordsGraphTest)
 
 add_executable(DictionaryTest test/DictionaryTest.cpp)

@@ -9,10 +9,10 @@
 #include <memory>                                          // std::shared_ptr
 #include <ostream>                                         // std::ostream
 #include <string>                                          // std::string
-#include <set>                                             // std::set
+#include <unordered_set>                                   // std::unordered_set
 
 using Word = std::string;
-using WordsSet = std::set<Word>;
+using WordsSet = std::unordered_set<Word>;
 
 class Dictionary;
 using DictionaryPtr = std::shared_ptr<Dictionary>;

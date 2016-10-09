@@ -5,7 +5,6 @@
 #ifndef DICTIONARYPATH_DEFAULTDICTIONARY_H
 #define DICTIONARYPATH_DEFAULTDICTIONARY_H
 
-#include <set>                                             // std::set
 #include <utility>                                         // std::forward
 
 #include <DictionaryPath/Dictionary.h>                     // Dictionary, Word
@@ -40,7 +39,7 @@ public:
     const Word *findPointer(const Word &word) const override;
 
 private:
-    std::set<Word> set_;
+    WordsSet set_;
 };
 
 

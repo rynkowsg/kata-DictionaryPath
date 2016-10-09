@@ -7,6 +7,7 @@
 
 #include "DijkstraAlgorithm.h"                             // DijkstraAlgorithmPtr
 
+
 class WordsGraphAlgorithmFactory
 {
 public:

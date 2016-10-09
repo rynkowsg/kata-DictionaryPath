@@ -9,43 +9,43 @@
 
 #include <gmock/gmock.h>
 
-#include <DictionaryPath/Dictionary.h>                     // Dictionary
+#include <DictionaryPath/Dictionary.h>                     // Dictionary, WordsSet
 #include "FactoryMathod.h"                                 // FactoryMethod
 
 
 class MockDictionary: public Dictionary,
                       public FactoryMethod<MockDictionary>,
-                      public std::set<Word>
+                      public WordsSet
 {
 public:
     MockDictionary()
-        : std::set<Word>()
+        : WordsSet()
     {
     }
 
     template<typename ... Args>
     MockDictionary(Args... args)
-        : std::set<Word>{args...}
+        : WordsSet{args...}
     {
     }
 
     inline Iterator find(const Word &word) const override final
-    { return std::set<Word>::find(word); }
+    { return WordsSet::find(word); }
 
     inline Iterator begin() const override final
-    { return std::set<Word>::begin(); }
+    { return WordsSet::begin(); }
 
     inline Iterator end() const override final
-    { return std::set<Word>::end(); }
+    { return WordsSet::end(); }
 
     inline bool empty() const override final
-    { return std::set<Word>::empty(); }
+    { return WordsSet::empty(); }
 
     inline std::size_t size() const override final
-    { return std::set<Word>::size(); }
+    { return WordsSet::size(); }
 
     inline InsertingResult insert(const Word &word) override final
-    { return std::set<Word>::insert(word); }
+    { return WordsSet::insert(word); }
 
     MOCK_CONST_METHOD1(findPointer, const Word*(const Word &word));
 };

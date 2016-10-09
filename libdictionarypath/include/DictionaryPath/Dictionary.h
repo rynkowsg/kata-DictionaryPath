@@ -12,13 +12,13 @@
 #include <set>                                             // std::set
 
 using Word = std::string;
+using WordsSet = std::set<Word>;
 
 class Dictionary;
 using DictionaryPtr = std::shared_ptr<Dictionary>;
 
 struct Dictionary
 {
-    using WordsSet = std::set<Word>;
     using InsertingResult = std::pair<WordsSet::iterator, bool>;
     using Iterator = WordsSet::iterator;
 

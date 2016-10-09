@@ -6,10 +6,9 @@
 #define DICTIONARYPATH_DICTIONARYFACTORY_H
 
 #include <initializer_list>                                // std::initializer_list
-#include <set>                                             // std::set
 #include <utility>                                         // std::forward
 
-#include "DictionaryPath/Dictionary.h"                     // DictionaryPtr
+#include "DictionaryPath/Dictionary.h"                     // DictionaryPtr, WordsSet
 
 
 class DictionaryFactory
@@ -23,9 +22,9 @@ public:
 
     static DictionaryPtr CreateDictionary();
 
-    static DictionaryPtr CreateDictionary(const std::set<Word> &set);
+    static DictionaryPtr CreateDictionary(const WordsSet &set);
 
-    static DictionaryPtr CreateDictionary(std::set<Word> &&set);
+    static DictionaryPtr CreateDictionary(WordsSet &&set);
 
     static DictionaryPtr CreateDictionary(std::initializer_list<Word> list);
 };

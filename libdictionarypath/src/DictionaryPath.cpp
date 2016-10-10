@@ -19,12 +19,6 @@ int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary,
         return 0;
     }
 
-    // If start and end are not the same, both needs to be in the Dictionary.
-    // If one of them is not in the dict, there is no path between them.
-    if (!dictionary->contains(start) || !dictionary->contains(end)) {
-        return DictionaryPath::kPathNotExist;
-    }
-
     auto graph = WordsGraphFactory::CreateWordsGraph();
     graph->setData(dictionary);
 

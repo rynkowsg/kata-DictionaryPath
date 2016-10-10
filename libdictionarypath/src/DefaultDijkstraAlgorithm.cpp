@@ -65,6 +65,11 @@ ConstPathPtr DefaultDijkstraAlgorithm::getPath(Node start, Node end)
 {
     path_ = std::make_shared<Path>();
 
+    // if one of words doesn't belong to the graph return empty path
+    if (!graph_->contains(start) || !graph_->contains(end)) {
+        return path_;
+    }
+
     initializeAlgorithm(start);
     calculate(start);
 

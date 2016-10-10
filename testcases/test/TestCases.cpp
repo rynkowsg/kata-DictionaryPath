@@ -35,4 +35,5 @@ TEST_FROM_FILE(5_start_word_missing_in_dict);
 TEST_FROM_FILE(6_end_word_missing_in_dict);
 TEST_FROM_FILE(7_duplicated_words);
 TEST_FROM_FILE(8_same_start_and_end);
-TEST_FROM_FILE(9_empty_dictionary);
+TEST_FROM_FILE(9_empty_dictionary_different_words);
+TEST_FROM_FILE(10_empty_dictionary_same_words);

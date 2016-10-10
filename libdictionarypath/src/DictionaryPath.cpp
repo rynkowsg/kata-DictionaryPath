@@ -28,7 +28,7 @@ int DictionaryPath::calculatePathLength(const DictionaryPtr &dictionary,
     auto graph = WordsGraphFactory::CreateWordsGraph();
     graph->setData(dictionary);
 
-    auto shortestPathAlgorithm = WordsGraphAlgorithmFactory::CreateDijkstraAlgorithm();
+    auto shortestPathAlgorithm = WordsGraphAlgorithmFactory::CreateShortestPathAlgorithm();
     shortestPathAlgorithm->setGraph(graph);
 
     auto path = shortestPathAlgorithm->getPath(start, end);

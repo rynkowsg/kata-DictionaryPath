@@ -9,6 +9,11 @@
 #include "DefaultDijkstraAlgorithm.h"                      // DefaultDijkstraAlgorithm
 
 
+ShortestPathAlgorithmPtr WordsGraphAlgorithmFactory::CreateShortestPathAlgorithm()
+{
+    return CreateDijkstraAlgorithm();
+}
+
 DijkstraAlgorithmPtr WordsGraphAlgorithmFactory::CreateDijkstraAlgorithm()
 {
     return std::make_shared<DefaultDijkstraAlgorithm>();

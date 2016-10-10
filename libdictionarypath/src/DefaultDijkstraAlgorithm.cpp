@@ -49,11 +49,8 @@ void DefaultDijkstraAlgorithm::fillOutTables()
 
 void DefaultDijkstraAlgorithm::initializeAlgorithm(Node start)
 {
-    if (!distance_)
-        distance_ = std::make_shared<DistanceTable>();
-
-    if (!previous_)
-        previous_ = std::make_shared<PreviousTable>();
+    distance_ = std::make_shared<DistanceTable>();
+    previous_ = std::make_shared<PreviousTable>();
 
     for (auto &node : *graph_->getNodes()) {
         (*distance_)[node] = kInfinity;
@@ -66,13 +63,13 @@ void DefaultDijkstraAlgorithm::initializeAlgorithm(Node start)
 
 ConstPathPtr DefaultDijkstraAlgorithm::getPath(Node start, Node end)
 {
-    if (!path_) {
-        path_ = std::make_shared<Path>();
-    }
+    path_ = std::make_shared<Path>();
 
-    if (!distance_) {
-        calculate(start);
-    }
+    initializeAlgorithm(start);
+    calculate(start);
+
+    // TODO: Consider caching results from previous requests
+    //       (caching of distance and previous tables).
 
     if (path_->empty() && distance_->at(end) != kInfinity) {
         for (Node node = end; node != kUndefined; node = previous_->at(node)) {

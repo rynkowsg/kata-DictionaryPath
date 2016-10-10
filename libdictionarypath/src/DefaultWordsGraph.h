@@ -30,6 +30,9 @@ public:
     inline const Neighbours &getNeighbours(const Node &node) const override final
     { return connections_->at(node); }
 
+    inline bool contains(const Node& node) const override final
+    { return nodes_->find(node) != nodes_->end(); }
+
     void printConnections(std::ostream &os);
 
 private:

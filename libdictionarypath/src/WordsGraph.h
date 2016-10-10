@@ -35,6 +35,8 @@ struct WordsGraph
 
     virtual ConstNodesPtr getNodes() const = 0;
 
+    virtual bool contains(const Node& node) const = 0;
+
     virtual const Neighbours& getNeighbours(const Node& node) const = 0;
 };
 

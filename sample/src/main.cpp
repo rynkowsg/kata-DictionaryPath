@@ -21,7 +21,12 @@ int main()
     std::cout << "start: " << start << std::endl;
     std::cout << "end:   " << end << std::endl;
     std::cout << std::endl;
-    std::cout << "length: " << pathLenth << std::endl;
+    if( pathLenth == DictionaryPath::kPathNotExist ) {
+        std::cout << "path doesn't exist" << std::endl;
+    }
+    else {
+        std::cout << "length: " << pathLenth << std::endl;
+    }
 
     return 0;
 }

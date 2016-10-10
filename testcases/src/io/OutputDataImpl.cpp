@@ -11,7 +11,7 @@ OutputDataImpl::OutputDataImpl(const std::string &outputFilePath)
 {
 }
 
-unsigned int OutputDataImpl::getExpectingResult()
+int OutputDataImpl::getExpectingResult()
 {
     if (!expectingResult_.is_initialized()) {
         load();
@@ -31,11 +31,6 @@ void OutputDataImpl::load()
 void OutputDataImpl::readData(std::istream &is)
 {
     auto value = 0;
-
     is >> value;
-    if (value < 0) {
-        throw std::runtime_error("The length can't be negative.");
-    }
-
     expectingResult_ = value;
 }

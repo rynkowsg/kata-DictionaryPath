@@ -17,16 +17,15 @@ class OutputDataImpl: public OutputData
 public:
     OutputDataImpl(const std::string &outputFilePath);
 
-    unsigned int getExpectingResult() override;
+    int getExpectingResult() override;
 
 private:
     void load();
     void readData(std::istream &is);
 
-
     std::string outputFilePath_;
 
-    boost::optional<unsigned int> expectingResult_;
+    boost::optional<int> expectingResult_;
 };
 
 

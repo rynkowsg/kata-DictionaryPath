@@ -13,7 +13,7 @@ using OutputDataPtr = std::shared_ptr<OutputData>;
 class OutputData
 {
 public:
-    virtual unsigned int getExpectingResult() = 0;
+    virtual int getExpectingResult() = 0;
 };
 
 

@@ -10,9 +10,11 @@
 class DictionaryPath
 {
 public:
-    unsigned int calculatePathLength(const DictionaryPtr &dictionary_,
-                                     const Word &start,
-                                     const Word &end);
+    int calculatePathLength(const DictionaryPtr &dictionary_,
+                            const Word &start,
+                            const Word &end);
+
+    static constexpr auto kPathNotExist = -1;
 };
 
 #endif //DICTIONARYPATH_DICTIONARYPATH_H

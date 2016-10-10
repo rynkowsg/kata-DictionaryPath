@@ -39,3 +39,13 @@ add_executable(WordsGraphTest
 target_include_directories(WordsGraphTest PRIVATE src)
 target_link_libraries(WordsGraphTest GTest::main GMock::main DictionaryPath)
 add_test(NAME WordsGraphTest COMMAND WordsGraphTest)
+
+
+# test: "ShortestPathTest"
+add_executable(ShortestPathTest
+        test/ShortestPathTest.cpp
+        test/MockWordsGraph.h test/MockWordsGraph.cpp
+        )
+target_include_directories(ShortestPathTest PRIVATE src)
+target_link_libraries(ShortestPathTest GTest::main GMock::main DictionaryPath)
+add_test(NAME ShortestPathTest COMMAND ShortestPathTest)

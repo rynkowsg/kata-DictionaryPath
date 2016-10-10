@@ -37,3 +37,4 @@ TEST_FROM_FILE(7_duplicated_words);
 TEST_FROM_FILE(8_same_start_and_end);
 TEST_FROM_FILE(9_empty_dictionary_different_words);
 TEST_FROM_FILE(10_empty_dictionary_same_words);
+TEST_FROM_FILE(11_test);

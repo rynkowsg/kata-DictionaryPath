@@ -12,8 +12,8 @@ int main()
 {
     const auto &dictionary =
         DictionaryFactory::CreateDictionary("hit", "dot", "dog", "cog", "hot", "log");
-    const auto &start = *(dictionary->find("hit"));
-    const auto &end = *(dictionary->find("cog"));
+    auto start = "hit";
+    auto end = "cog";
 
     auto pathLenth = DictionaryPath{}.calculatePathLength(dictionary, start, end);
 

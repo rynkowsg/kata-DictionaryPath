@@ -12,10 +12,10 @@
 
 #include "OutputData.h"                                    // OutputData
 
-class OutputDataImpl : public OutputData
+class OutputDataImpl: public OutputData
 {
 public:
-    OutputDataImpl(const std::string& outputFilePath);
+    OutputDataImpl(const std::string &outputFilePath);
 
     unsigned int getExpectingResult() override;
 

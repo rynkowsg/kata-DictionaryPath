@@ -10,6 +10,9 @@ kata-DictionaryPath [![Build Status](https://travis-ci.org/rynkowsg/kata-Diction
   - on Windows: Visual Studio
   - on Linux: gcc or clang
 
+The project and tests should compile and run on all three platforms,
+although I tested it only on OS X for now (on private computer and on Travis CI).
+
 #### To compile:
 
     cmake -H. -Bbuild

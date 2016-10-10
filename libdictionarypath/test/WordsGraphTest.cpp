@@ -93,9 +93,7 @@ TEST(ProcessingDictionary, EmptyDictionary)
     wordsGraph->setData(dict);
 
     auto nodes = wordsGraph->getNodes();
-    auto connections = wordsGraph->getConnections();
     EXPECT_EQ(0, nodes->size());
-    EXPECT_EQ(0, connections->size());
 }
 
 TEST(ProcessingDictionary, OneWordDictionary)
@@ -104,16 +102,12 @@ TEST(ProcessingDictionary, OneWordDictionary)
     auto wordsGraph = WordsGraphFactory::CreateWordsGraph();
     wordsGraph->setData(dict);
 
-    auto nodes = wordsGraph->getNodes();
-    auto connections = wordsGraph->getConnections();
-    EXPECT_EQ(1, nodes->size());
-    EXPECT_EQ(1, connections->size());
-
-    auto connectionsOfAddedNode = (*connections->begin()).second;
-    EXPECT_EQ(0, connectionsOfAddedNode.size());
+    EXPECT_EQ(1, wordsGraph->getNodes()->size());
+    EXPECT_EQ(0, wordsGraph->getNeighbours("cat").size());
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

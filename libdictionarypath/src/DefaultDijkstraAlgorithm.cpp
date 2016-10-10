@@ -37,7 +37,7 @@ void DefaultDijkstraAlgorithm::fillOutTables()
         auto node = priorityQueue_.top();
         priorityQueue_.pop();
 
-        for (const auto &neighbour : graph_->getConnections()->at(node)) {
+        for (const auto &neighbour : graph_->getNeighbours(node)) {
             if (distance_->at(neighbour) > distance_->at(node) + 1) {
                 distance_->at(neighbour) = distance_->at(node) + 1;
                 previous_->at(neighbour) = node;

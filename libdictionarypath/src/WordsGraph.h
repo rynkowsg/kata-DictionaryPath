@@ -35,7 +35,7 @@ struct WordsGraph
 
     virtual ConstNodesPtr getNodes() const = 0;
 
-    virtual ConstConnectionsPtr getConnections() const = 0;
+    virtual const Neighbours& getNeighbours(const Node& node) const = 0;
 };
 
 

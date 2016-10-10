@@ -24,11 +24,11 @@ public:
 
     void setData(DictionaryPtr dictionary) override;
 
-    ConstNodesPtr getNodes() const override
+    inline ConstNodesPtr getNodes() const override final
     { return nodes_; }
 
-    ConstConnectionsPtr getConnections() const override
-    { return connections_; }
+    inline const Neighbours &getNeighbours(const Node &node) const override final
+    { return connections_->at(node); }
 
     void printConnections(std::ostream &os);
 

@@ -2,16 +2,15 @@ kata-DictionaryPath [![Build Status](https://travis-ci.org/rynkowsg/kata-Diction
 ===================
 
 
-#### Requirements:
+#### Build environment and requirements:
 
+The project has been compiled and tested on OS X only.
+In the future I'm going to ensure that it works also on other platforms.
+
+Two requirements needed to build and run the project on OS X:
+
+- Xcode Command Line Tools
 - CMake 3.6 or above
-- compiler
-  - on OS X: Xcode Command Line Tools
-  - on Windows: Visual Studio
-  - on Linux: gcc or clang
-
-The project and tests should compile and run on all three platforms,
-although I tested it only on OS X for now (on private computer and on Travis CI).
 
 #### To compile:
 
